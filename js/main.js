@@ -4,12 +4,12 @@ $(document).ready(function() {
         value = $.trim(value);
         var parts = value.split(/\s+/);
         return parts.length >= 2;
-    }, "Por favor, insira o seu nome completo.");
+    }, "Please enter your full name.");
 
     $.validator.addMethod("validPhone", function(value, element) {
         var cleanVal = value.replace(/\D/g, '');
         return cleanVal.length >= 11;
-    }, "Por favor, insira o seu telefone com DDD.");
+    }, "Please enter your phone number with area code.");
 
     $('#phone').mask('(00)00000-0000', {
         placeholder: '(00)00000-0000'
@@ -36,18 +36,18 @@ $(document).ready(function() {
         },
         messages: {
             name: {
-                required: 'Por favor, insira o seu nome.'
+                required: 'Please enter your name.'
             },
             email: {
-                required: 'Por favor, insira o seu email.',
-                email: 'Por favor, insira um email válido.'
+                required: 'Please enter your email.',
+                email: 'Please enter a valid email.'
             },
             phone: {
-                required: 'Por favor, insira o seu telefone com DDD.'
+                required: 'Please enter your phone number with area code.'
             },
             message: {
-                required: 'Por favor, insira uma mensagem.',
-                minlength: 'A mensagem deve ter pelo menos 10 caracteres.'
+                required: 'Please enter a message.',
+                minlength: 'The message must be at least 10 characters long.'
             }
         },
         submitHandler: function(form) {
@@ -56,7 +56,7 @@ $(document).ready(function() {
         invalidHandler: function(event, validator) {
             let incorrect = validator.numberOfInvalids();
             if (incorrect) {
-                alert('Por favor revise os seus dados de contato.');
+                alert('Please review your contact information.');
             }
         },
         errorPlacement: function(error, element) {
